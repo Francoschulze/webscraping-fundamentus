@@ -30,6 +30,8 @@ linhas = soup.find(id='tabelaResultado').find('tbody').find_all('tr')
 
 resultado = []
 
+# Definindo os parâmetros para um exemplo de filtro
+# para a nossa estratégia
 estrategia = Estrategia(
     cotacao_atual_minima=50.0,
     dividend_yield_minimo=5,
@@ -61,10 +63,11 @@ for linha in linhas:
         codigo, segmento, cotacao, ffo_yield, dividend_yield, p_vp, valor_mercado,
         liquidez, qt_imoveis, preco_m2, aluguel_m2, cap_rate, vacancia
         )
-
+    # Adicionando na lista resultado os valores retornados como True
     if estrategia.aplica_estrategia(fundo_imobiliario):
         resultado.append(fundo_imobiliario)
 
+# Cabeçalho para o uso da tabulate
 cabecalho = ['ÍNDICE', 'CÓDIGO', 'SEGMENTO', 'COTAÇÃO ATUAL', 'DIVIDEND YIELD']
 
 tabela = []
