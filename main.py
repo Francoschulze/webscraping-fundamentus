@@ -22,4 +22,10 @@ for linha in linhas:
     dados_fundo = linha.find_all('td')
 
     # Mostrando os dados na tela utilizando o índice
-    print(dados_fundo[0].text)
+    print(
+        f'[{dados_fundo[0].text}]\n'
+        f'\tCotação: {dados_fundo[2].text}\n'
+        f'\tSetor: {dados_fundo[1].text}\n'
+        f'\tDY %: {dados_fundo[4].text}\n'
+        f'\tP/VP: {dados_fundo[5].text}\n'
+    )
